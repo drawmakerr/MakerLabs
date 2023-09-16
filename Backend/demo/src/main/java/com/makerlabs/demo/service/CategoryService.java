@@ -29,7 +29,6 @@ public class CategoryService {
         categoryRepo.save(category);
     }
 
-    @DeleteMapping
     public boolean deleteCategory(Long categoryId) {
             Optional<Category> categoryOptional = categoryRepo.findById(categoryId);
             if (categoryOptional.isPresent()) {
