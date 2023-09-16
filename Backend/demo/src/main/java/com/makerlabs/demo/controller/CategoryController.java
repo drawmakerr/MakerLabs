@@ -28,13 +28,13 @@ public class CategoryController {
 
     @PutMapping("/update/{categoryId}")
     public String updateCategory(@PathVariable("categoryId") int categoryId, @RequestBody Category category){
-        categoryService.editCategory(categoryId, category);
+        categoryService.editCategory((long) categoryId, category);
         return "Updated!";
     }
 
     @DeleteMapping("/delete/{categoryId}")
     public ResponseEntity<String> deleteCategory(@PathVariable Integer categoryId){
-        boolean deleted = categoryService.deleteCategory(categoryId);
+        boolean deleted = categoryService.deleteCategory(Long.valueOf(categoryId));
         if (deleted) {
             return ResponseEntity.ok("Category deleted successfully");
         } else {

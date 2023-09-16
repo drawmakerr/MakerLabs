@@ -21,7 +21,7 @@ public class CategoryService {
        return categoryRepo.findAll();
     }
 
-    public void editCategory(int categoryId, Category updateCategory) {
+    public void editCategory(Long categoryId, Category updateCategory) {
         Category category = categoryRepo.getById(categoryId);
         category.setCategoryName(updateCategory.getCategoryName());
         category.setDescription(updateCategory.getDescription());
@@ -30,7 +30,7 @@ public class CategoryService {
     }
 
     @DeleteMapping
-    public boolean deleteCategory(Integer categoryId) {
+    public boolean deleteCategory(Long categoryId) {
             Optional<Category> categoryOptional = categoryRepo.findById(categoryId);
             if (categoryOptional.isPresent()) {
                 categoryRepo.deleteById(categoryId);
