@@ -19,8 +19,8 @@ const getProducts = async () => {
 <template>
 <div class="content">
     <div v-if="loading" class="lds-dual-ring"></div>
-    <div class="content__products" v-else>
-        <h1>Patata</h1>
+    <div class="content__products" v-else v-for="product in productStore">
+        <ProductItem :id="product.id" :name="product.name"></ProductItem>
     </div>
 </div>
 </template>
