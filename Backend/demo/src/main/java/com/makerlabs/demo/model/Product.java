@@ -16,13 +16,18 @@ public class Product {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @ManyToOne
+    @JoinColumn
+    Category category;
+
     @Column(nullable = false)
     private String name;
+    @Column(nullable = false)
     private String imageUrl;
+    @Column(nullable = false)
     private double price;
+    @Column(nullable = false)
     private String description;
 
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    Category category;
+
 }
